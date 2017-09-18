@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=gnome-network-properties
+Name=Ganymede
+Exec=/home/sid/code/ganymede/ganymede.py
+Comment=Simplifies opening Jupyter notebook server
