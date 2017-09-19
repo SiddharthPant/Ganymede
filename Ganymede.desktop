@@ -6,5 +6,5 @@ Type=Application
 Terminal=false
 Icon=gnome-network-properties
 Name=Ganymede
-Exec=/home/sid/code/ganymede/ganymede.py
+Exec=code/ganymede/ganymede.py
 Comment=Simplifies opening Jupyter notebook server

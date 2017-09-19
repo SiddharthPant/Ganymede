@@ -15,7 +15,7 @@ from gi.repository import AppIndicator3 as appindicator
 from gi.repository import Notify as notify
 
 
-APPINDICATOR_ID = 'myappindicator'
+APPINDICATOR_ID = 'Ganymede'
 p = None
 def main():
     indicator = appindicator.Indicator.new(APPINDICATOR_ID, gtk.STOCK_NETWORK, appindicator.IndicatorCategory.SYSTEM_SERVICES)
@@ -40,9 +40,8 @@ def build_menu():
 
 def jupyterx(self):
 	global p
-	p = Popen(['/home/sid/anaconda2/bin/jupyter','notebook'], stdout=PIPE,stdin=PIPE,stderr=STDOUT)
+	p = Popen([os.path.expanduser('~/anaconda2/bin/jupyter'),'notebook'], stdout=PIPE,stdin=PIPE,stderr=STDOUT)
 	notify.Notification.new("<b>Server Started</b>", 'https://localhost:8888/', None).show()
-	# return p.kill()
 
 def kill_jupyter(self):
 	global p
@@ -50,14 +49,7 @@ def kill_jupyter(self):
 		p.kill()
 		p.communicate(input=b'y\n')
 	notify.Notification.new("<b>Server Stopped</b>", 'Stopped jupyter and killed it!', None).show()
-# def fetch_joke():
-#     request = Request('http://api.icndb.com/jokes/random?limitTo=[nerdy]')
-#     response = urlopen(request)
-#     joke = json.loads(response.read())['value']['joke']
-#     return joke
 
-# def joke(_):
-#     notify.Notification.new("<b>Joke</b>", fetch_joke(), None).show()
 
 def quit(_):
     notify.uninit()
